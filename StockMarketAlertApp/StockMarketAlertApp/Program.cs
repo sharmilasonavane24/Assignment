@@ -1,8 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
+using StockMarketAlertApp.Configuration;
+using StockMarketAlertApp.Helpers;
+using StockMarketAlertApp.Services;
+using Unity;
 
 namespace StockMarketAlertApp
 {
@@ -10,32 +16,13 @@ namespace StockMarketAlertApp
     {
         static void Main(string[] args)
         {
-            NotificationService notification = new NotificationService();
-            StockObserver observer = new StockObserver(notification);
 
+           var start =new StartUp();
 
-            Console.WriteLine("Press ESC to stop");
-            Console.WriteLine("Enter Current Stock Price: ");
+            start.Run();
 
-            do
-            {
-
-
-                if (double.TryParse(Console.ReadLine(), out double currentPrice))
-                {
-
-                    notification.SetStockMarketPrice(currentPrice);
-                }
-                else
-                {
-                    Console.WriteLine("Invalid Stock Price");
-                }
-
-            } while (Console.ReadKey(true).Key != ConsoleKey.Escape);
-
-
-            
-            
         }
+
+      
     }
 }

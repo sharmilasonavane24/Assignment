@@ -1,4 +1,4 @@
-﻿namespace StockMarketAlertApp
+﻿namespace StockMarketAlertApp.Services
 {
     public interface INotificationService
     {

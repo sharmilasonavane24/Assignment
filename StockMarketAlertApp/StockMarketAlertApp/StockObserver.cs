@@ -1,24 +1,26 @@
 ﻿using System;
+using System.Globalization;
+using StockMarketAlertApp.Services;
 
 namespace StockMarketAlertApp
 {
     public class StockObserver : IStockObserver
     {
         private double _currrentStockMarketPrice;
-        private INotificationService _notificationService;
-        public StockObserver(INotificationService notificationService)
+        private readonly IEmailAlertService _emailAlertService;
+        public StockObserver(INotificationService notificationService, IEmailAlertService emailAlertService)
         {
             if (notificationService == null) throw new ArgumentNullException(nameof(notificationService));
-            _notificationService = notificationService;
-            _notificationService.Register(this);
+            _emailAlertService = emailAlertService;
+            notificationService.Register(this);
         }
         public void Update(double stockMarketPrice)
         {
            
-           // if (Math.Abs(_currrentStockMarketPrice - stockMarketPrice) <=  Math.Abs(_currrentStockMarketPrice * .00001))
            if (!_currrentStockMarketPrice.Equals(stockMarketPrice))
             {
                 _currrentStockMarketPrice = stockMarketPrice;
+                _emailAlertService.SendEmail(_currrentStockMarketPrice.ToString(CultureInfo.InvariantCulture));
                 Console.WriteLine($"Current Stock Price: {_currrentStockMarketPrice}");
                 Console.WriteLine("Enter New Stock Price: ");
 

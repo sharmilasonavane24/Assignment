@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace StockMarketAlertApp
+namespace StockMarketAlertApp.Services
 {
     public class NotificationService : INotificationService
     {
