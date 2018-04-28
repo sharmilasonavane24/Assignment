@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{66F2BC19-D827-4639-9198-B237D4B2204B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CrmApi.Facades</RootNamespace>
+    <AssemblyName>CrmApi.Facades</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomerFacade.cs" />
+    <Compile Include="CutomerDtoMapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Crm.Common.Interfaces\Crm.Common.Interfaces.csproj">
+      <Project>{2fb41077-6220-4497-bf7f-21f9554f3637}</Project>
+      <Name>Crm.Common.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Crm.Common\Crm.Common.csproj">
+      <Project>{2987a9dc-1818-4228-8570-eddfc3055952}</Project>
+      <Name>Crm.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Crm.Dtos\Crm.Dtos.csproj">
+      <Project>{a505aaae-9239-4b7e-96f9-0cc98ec0f4b0}</Project>
+      <Name>Crm.Dtos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Crm.Entities.Interfaces\Crm.Entities.Interfaces.csproj">
+      <Project>{c6c2724a-bafa-4854-9034-52e145053d7d}</Project>
+      <Name>Crm.Entities.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Crm.Infra.Database\Crm.Infra.Database.csproj">
+      <Project>{fd8b2520-cbc4-44b7-acbf-514f215efb87}</Project>
+      <Name>Crm.Infra.Database</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Crm.Services.Interfaces\Crm.Services.Interfaces.csproj">
+      <Project>{5f24a678-1411-4a53-9aab-e00e282942de}</Project>
+      <Name>Crm.Services.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CrmApi.Facades.Interfaces\CrmApi.Facades.Interfaces.csproj">
+      <Project>{454947dd-0fe0-40d4-8797-36126307e89b}</Project>
+      <Name>CrmApi.Facades.Interfaces</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
