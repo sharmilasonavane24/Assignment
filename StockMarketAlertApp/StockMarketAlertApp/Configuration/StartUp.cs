@@ -12,7 +12,6 @@ namespace StockMarketAlertApp.Configuration
         public StartUp()
         {
             IUnityContainer unitycontainer = new UnityContainer();
-
             unitycontainer.RegisterType<IMailMessageFactory, MailMessageFactory>();
             unitycontainer.RegisterType<ISmtpClientFactory, SmtpClientFactory>();
             unitycontainer.RegisterType<IEmailAlertService, EmailAlertService>();
