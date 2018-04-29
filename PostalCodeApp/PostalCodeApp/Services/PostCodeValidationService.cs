@@ -1,24 +1,31 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 
 namespace PostalCodeApp.Services
 {
-    public class PostCodeValidationService: IPostCodeValidationService
+    public class PostCodeValidationService : IPostCodeValidationService
     {
         public bool Validate(string postalCode)
         {
-            using (var client1 = new WebClient())
+            try
             {
-                client1.Headers["accept"] = Constants.Accept;
-                client1.Headers["x-api-key"] = Constants.ApiKey;
-
-                var validationData = client1.DownloadString($"{Constants.url}{postalCode}");
-
-                if (validationData.Contains(Constants.EmptyAddress))
+                using (var client1 = new WebClient())
                 {
-                    return false;
+                    client1.Headers["accept"] = Constants.Accept;
+                    client1.Headers["x-api-key"] = Constants.ApiKey;
+
+                    var validationData = client1.DownloadString($"{Constants.url}{postalCode}");
+
+                    if (validationData.Contains(Constants.EmptyAddress))
+                    {
+                        return false;
+                    }
                 }
             }
-
+            catch (Exception)
+            {
+                return false;
+            }
             return true;
         }
     }
