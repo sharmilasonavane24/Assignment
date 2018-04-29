@@ -65,6 +65,10 @@
       <Project>{f58991a6-298e-43d4-ae08-cc9fd8ee1dbb}</Project>
       <Name>Crm.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Crm.Infra.Database\Crm.Infra.Database.csproj">
+      <Project>{FD8B2520-CBC4-44B7-ACBF-514F215EFB87}</Project>
+      <Name>Crm.Infra.Database</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Crm.Infra.Models\Crm.Infra.Models.csproj">
       <Project>{d9ea264a-75e0-49b8-bf39-26b95463f906}</Project>
       <Name>Crm.Infra.Models</Name>
